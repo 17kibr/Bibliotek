@@ -90,7 +90,16 @@ namespace ConsoleLibrary
         }
         static void ShowAll()
         {
-
+            Console.WriteLine("The list of all books...");
+            Console.WriteLine("==========================");
+            foreach (var book in BookList)
+            {
+                Console.WriteLine(book);
+            }
+            Console.WriteLine("==========================");
+            Console.Write("press enter to go back to Menu");
+            Console.ReadLine();
+            Start();
         }
         static void EditBook()
         {
