@@ -18,3 +18,10 @@ C:\Users\Admin\Desktop\ssis\ConsoleLibrary\ConsoleLibrary\ConsoleLibrary\Bibliot
 C:\Users\Admin\Desktop\ssis\ConsoleLibrary\ConsoleLibrary\ConsoleLibrary\Bibliotek\obj\Debug\ConsoleLibrary.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\ssis\ConsoleLibrary\ConsoleLibrary\ConsoleLibrary\Bibliotek\obj\Debug\ConsoleLibrary.exe
 C:\Users\Admin\Desktop\ssis\ConsoleLibrary\ConsoleLibrary\ConsoleLibrary\Bibliotek\obj\Debug\ConsoleLibrary.pdb
+C:\Users\Admin\Desktop\Library\bin\Debug\ConsoleLibrary.exe.config
+C:\Users\Admin\Desktop\Library\bin\Debug\ConsoleLibrary.exe
+C:\Users\Admin\Desktop\Library\bin\Debug\ConsoleLibrary.pdb
+C:\Users\Admin\Desktop\Library\obj\Debug\ConsoleLibrary.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\Library\obj\Debug\ConsoleLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\Library\obj\Debug\ConsoleLibrary.exe
+C:\Users\Admin\Desktop\Library\obj\Debug\ConsoleLibrary.pdb

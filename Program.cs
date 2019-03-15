@@ -120,7 +120,18 @@ namespace ConsoleLibrary
             string temp = Console.ReadLine();
             switch (temp)
             {
-
+                case "Y":
+                case "y":
+                    AddBook();
+                    break;
+                case "N":
+                case "n":
+                    Start();
+                    break;
+                default:
+                    Console.WriteLine("Please only write Y, y, N or n");
+                    Start();
+                    break;
             }
         }
         static void Edit()
@@ -165,7 +176,7 @@ namespace ConsoleLibrary
         } 
         static void ShutDown()
         {
-            BookList.Add(new Book("titlehereeeee", "authorhere", true));
+            //BookList.Add(new Book("titlehereeeee", "authorhere", true));
             using (TextWriter tw = new StreamWriter(@"..\SavedData\BookFiles.txt"))
             {
                 foreach (Book b in BookList)
