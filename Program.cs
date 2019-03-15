@@ -101,12 +101,54 @@ namespace ConsoleLibrary
             Console.ReadLine();
             Start();
         }
+        static void ShowAllRemove()
+        {
+            Console.WriteLine("==========================");
+            foreach (var book in BookList)
+            {
+                Console.WriteLine(book);
+            }
+            Console.WriteLine("==========================");
+            Console.WriteLine("Remove book by selecting the number in the list");
+            int dele = Convert.ToInt32(Console.ReadLine());
+            BookList.RemoveAt(dele);
+            Console.Write("press enter to go back to Menu");
+            Console.ReadLine();
+            Start();
+        }
         static void EditBook()
         {
 
         }
         static void DeleteBook()
         {
+            string Tempstring;
+            Console.WriteLine("Do you wish to remove book by:");
+            Console.WriteLine("Show all type A");
+            Console.WriteLine("search by title type ST");
+            Console.WriteLine("search by Author type SA");
+            Console.WriteLine("or go back to menu type M");
+            Tempstring = Console.ReadLine();
+            switch (Tempstring)
+            {
+                case "ST":
+                case "st":
+                    SearchTitle();
+                    break;
+                case "SA":
+                case "sa":
+                    SearchAuthor();
+                    break;
+                case "A":
+                case "a":
+                    ShowAllRemove();
+                    break;
+                case "M":
+                case "m":
+                    Start();
+                    break;
+            }
+            Start();
 
         }
         static void AddBook()
