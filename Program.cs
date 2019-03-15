@@ -15,7 +15,7 @@ namespace ConsoleLibrary
 
         public override string ToString()
         {
-            return $"{this.title} {this.author} {this.status}";
+            return $"{this.title}, {this.author}, {this.status}";
         }
 
         public Book(string BookTitle, string BookAuthor, bool BookStatus)
@@ -107,10 +107,10 @@ namespace ConsoleLibrary
             Console.WriteLine("ADD BOOK");
             Console.WriteLine("========");
             Console.WriteLine("What is the book's title?");
-            Console.WriteLine(">>");
+            Console.Write(">>");
             tempTitle = Console.ReadLine();
             Console.WriteLine("What is the book's Author");
-            Console.WriteLine(">>");
+            Console.Write(">>");
             tempAuthor = Console.ReadLine();
 
             Console.WriteLine("You have added the following book: ");
