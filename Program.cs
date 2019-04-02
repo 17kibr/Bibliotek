@@ -31,25 +31,32 @@ namespace ConsoleLibrary
             {
                 return title;
             }
+            set
+            {
+                title = value;
+            }
         }
-
         public string Author
         {
             get
             {
                 return author;
             }
+            set
+            {
+                Author = value;
+            }
         }
-
         public bool Status
         {
             get
             {
                 return status;
             }
+           
         }
     }
-
+    
     class Program
     {
         public static List<Book> BookList = new List<Book>();
@@ -174,20 +181,18 @@ namespace ConsoleLibrary
             Console.WriteLine("Enter the book's name:");
             Console.Write(">>");
             string sokOrd = (Console.ReadLine());
-            for (int i = 0; i < BookList.Count; i++)
+            foreach (var book in BookList)
             {
-                if (BookList[i].Title.Contains(sokOrd) || BookList[i].Title.Contains(sokOrd))
+                if (book.Title.Contains(sokOrd))
                 {
-                    Console.WriteLine("book name: " + BookList[i].Title + ", " + "By author: " + BookList[i].Author + "; status: ");
+                    Console.WriteLine("book name: " + book.Title + ", " + "By author: " + book.Author + "; status: ");
 
                 }
-                else
-                {
-                    Console.WriteLine("nej");
-                }
+              
+
+            }
                 Start();
             }
-        }
         static void SearchAuthor()
         {
             Console.WriteLine("Enter the author's name:");
