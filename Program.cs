@@ -117,9 +117,23 @@ namespace ConsoleLibrary
         }
         static void SearchTitle()
         {
+
             Console.WriteLine("Enter the book's name:");
             Console.Write(">>");
-            string TemporaryString = Console.ReadLine();
+            string sokOrd = (Console.ReadLine());
+            for (int i = 0; i < BookList.Count; i++)
+            {
+                if (BookList[i].Title.Contains(sokOrd) || BookList[i].Title.Contains(sokOrd))
+                {
+                    Console.WriteLine("book name: " + BookList[i].Title + ", " + "By author: " + BookList[i].Author + "; status: ");
+
+                }
+                else
+                {
+                    Console.WriteLine("nej");
+                }
+                Start();
+            }
         }
         static void SearchAuthor()
         {
@@ -139,9 +153,7 @@ namespace ConsoleLibrary
             Console.Write("press enter to go back to Menu");
             Console.ReadLine();
             Start();
-        }
-     
-        
+        }        
         static void EditBook()
         {
             string Tempstring;
