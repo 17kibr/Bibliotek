@@ -24,15 +24,54 @@ namespace ConsoleLibrary
             author = BookAuthor;
             status = BookStatus;
         }
+
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+        }
+
+        public string Author
+        {
+            get
+            {
+                return author;
+            }
+        }
+
+        public bool Status
+        {
+            get
+            {
+                return status;
+            }
+        }
     }
 
     class Program
     {
         public static List<Book> BookList = new List<Book>();
-
-        static void Main(string[] args)
+ 
+    static void Main(string[] args)
         {
-                Start();
+            StreamReader läsfil = new StreamReader("BookFiles.txt");
+            string s;
+            // Läser filen tills till slutet hittas
+            while ((s = läsfil.ReadLine()) != null)
+            {
+                string[] bookdata = s.Split(',');
+                string temptitel = bookdata[0];
+                string tempAuthor = bookdata[1];
+                bool tempstatus = bool.Parse(bookdata[2]);
+                // Delar upp data i raden för array
+                // Värden läggs till 
+                BookList.Add(new Book(temptitel, tempAuthor, tempstatus));
+            }
+            läsfil.Close();
+            Start();
+
         }
         static void Start()
         {
@@ -101,33 +140,77 @@ namespace ConsoleLibrary
             Console.ReadLine();
             Start();
         }
-        static void ShowAllRemove()
+     
+        
+        static void EditBook()
+        {
+            string Tempstring;
+            Console.WriteLine("metod to choose book to edit:");
+            Console.WriteLine("A: show all");
+            Console.WriteLine("ST: to search for title");
+            Console.WriteLine("SA: to search for  Author");
+            Console.WriteLine("M: to go to menu");
+            Tempstring = Console.ReadLine();
+            switch (Tempstring)
+            {
+                case "ST":
+                case "st":
+                    SearchTitle();
+                    break;
+                case "SA":
+                case "sa":
+                    SearchAuthor();
+                    break;
+                case "A":
+                case "a":
+                    ShowAllEdit();
+                    break;
+                case "M":
+                case "m":
+                    Start();
+                    break;
+            }
+            Start();
+        }
+        static void ShowAllEdit ()
         {
             Console.WriteLine("==========================");
             foreach (var book in BookList)
             {
                 Console.WriteLine(book);
             }
+            // visar och tar bort boken
             Console.WriteLine("==========================");
             Console.WriteLine("Remove book by selecting the number in the list");
             int dele = Convert.ToInt32(Console.ReadLine());
             BookList.RemoveAt(dele);
+            // här börjar add book funktionen
+            string tempTitle, tempAuthor;
+            Console.WriteLine("========");
+            Console.WriteLine("ADD BOOK");
+            Console.WriteLine("========");
+            Console.WriteLine("What is the book's title?");
+            Console.WriteLine(">>");
+            tempTitle = Console.ReadLine();
+            Console.WriteLine("What is the book's Author");
+            Console.WriteLine(">>");
+            tempAuthor = Console.ReadLine();
+
+            Console.WriteLine("You have added the following book: ");
+            Console.WriteLine(tempTitle + ", " + tempAuthor);
+            BookList.Add(new Book(tempTitle, tempAuthor, true));
             Console.Write("press enter to go back to Menu");
             Console.ReadLine();
             Start();
-        }
-        static void EditBook()
-        {
-
         }
         static void DeleteBook()
         {
             string Tempstring;
             Console.WriteLine("Do you wish to remove book by:");
-            Console.WriteLine("Show all type A");
-            Console.WriteLine("search by title type ST");
-            Console.WriteLine("search by Author type SA");
-            Console.WriteLine("or go back to menu type M");
+            Console.WriteLine("A: show all");
+            Console.WriteLine("ST: to search for title");
+            Console.WriteLine("SA: to search for  Author");
+            Console.WriteLine("M: to go to menu");
             Tempstring = Console.ReadLine();
             switch (Tempstring)
             {
@@ -150,6 +233,21 @@ namespace ConsoleLibrary
             }
             Start();
 
+        }
+        static void ShowAllRemove()
+        {
+            Console.WriteLine("==========================");
+            foreach (var book in BookList)
+            {
+                Console.WriteLine(book);
+            }
+            Console.WriteLine("==========================");
+            Console.WriteLine("Remove book by selecting the number in the list");
+            int dele = Convert.ToInt32(Console.ReadLine());
+            BookList.RemoveAt(dele);
+            Console.Write("press enter to go back to Menu");
+            Console.ReadLine();
+            Start();
         }
         static void AddBook()
         {
@@ -228,11 +326,12 @@ namespace ConsoleLibrary
         static void ShutDown()
         {
             //BookList.Add(new Book("titlehereeeee", "authorhere", true));
-            using (TextWriter tw = new StreamWriter(@"..\SavedData\BookFiles.txt"))
+            //using (TextWriter tw = new StreamWriter(@"..\SavedData\BookFiles.txt"))
+            using (TextWriter tw = new StreamWriter("BookFiles.txt"))
             {
-                foreach (Book b in BookList)
+                for(int i=0;i<BookList.Count;i++)
                 {
-                    tw.WriteLine(b);
+                    tw.WriteLine(BookList[i].Title + "," + BookList[i].Author + "," + BookList[i].Status);
                 }
                 tw.Close();
             }
