@@ -83,6 +83,7 @@ namespace ConsoleLibrary
             Console.WriteLine("ST :Search tile");
             Console.WriteLine("SA :Search author");
             Console.WriteLine("A :Show all books");
+            Console.WriteLine("L : Borrow/Return book");
             Console.WriteLine("E :Edit");
             Console.WriteLine("S :ShutDown");
             Console.Write(">>");
@@ -109,8 +110,60 @@ namespace ConsoleLibrary
                 case "s":
                     ShutDown();
                     break;
+                case "L":
+                case "l":
+                    Borrow();
+                    break;
                 default:
                     Console.WriteLine("Please only write ST,st,SA,sa,A or a");
+                    Start();
+                    break;
+            }
+        }
+        static void Borrow()
+        {
+            string TemporaryString;
+            Console.WriteLine("=============");
+            Console.WriteLine("Borrow/Return");
+            Console.WriteLine("=============");
+            Console.WriteLine("What do you want to do?");
+            Console.WriteLine("B : Borrow");
+            Console.WriteLine("R : Return");
+            Console.Write(">>");
+            TemporaryString = Console.ReadLine();
+            switch (TemporaryString)
+            {
+                case "B":
+                case "b":
+                    Console.WriteLine("===========");
+                    Console.WriteLine("Borrow Book");
+                    Console.WriteLine("===========");
+
+                    Console.WriteLine("Enter the title of the book you want to borrow:");
+                    Console.Write(">>");
+                    string RequestTitle = Console.ReadLine();
+
+                    Console.WriteLine("Enter the author of the book you want to borrow:");
+                    Console.Write(">>");
+                    string RequestAuthor = Console.ReadLine();
+
+                    break;
+                case "R":
+                case "r":
+                    Console.WriteLine("===========");
+                    Console.WriteLine("Return Book");
+                    Console.WriteLine("===========");
+
+                    Console.WriteLine("Enter the title of the book you want to return:");
+                    Console.Write(">>");
+                    string RequestReturnTitle = Console.ReadLine();
+
+                    Console.WriteLine("Enter the author of the book you want to return:");
+                    Console.Write(">>");
+                    string RequestreturnAuthor = Console.ReadLine();
+                    break;
+                default:
+                    Console.WriteLine("Please only write B, b, R or r");
                     Start();
                     break;
             }
