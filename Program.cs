@@ -32,7 +32,27 @@ namespace ConsoleLibrary
 
         static void Main(string[] args)
         {
-                Start();
+
+            var importedData = File.ReadAllLines(@"..\SavedData\BookFiles.txt");
+
+            List<string[]> rows = new List<string[]>();
+            foreach (string line in importedData)
+            {
+                rows.Add(line.Split(','));
+            }
+
+            /*
+            if (importedData.Length != null)
+            {
+                string[] title = importedData.Split(',');
+                for (int i = 0; i < importedData.Length; i++)
+                {
+                    title[i] = title[i].Trim();
+                }
+            }
+            */
+            Start();
+
         }
         static void Start()
         {
