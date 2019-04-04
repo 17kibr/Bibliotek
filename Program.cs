@@ -24,6 +24,48 @@ namespace ConsoleLibrary
             author = BookAuthor;
             status = BookStatus;
         }
+<<<<<<< HEAD
+=======
+
+        /*public string Title { get; set; }
+        public string Author { get; set; }
+        public bool Status { get; set; }*/
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
+        }
+        public string Author
+        {
+            get
+            {
+                return author;
+            }
+            set
+            {
+                author = value;
+            }
+        }
+        public bool Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                Status = value;
+            }
+
+        }
+    }
+>>>>>>> Kian
 
         public string Title
         {
@@ -63,7 +105,11 @@ namespace ConsoleLibrary
  
     static void Main(string[] args)
         {
+<<<<<<< HEAD
             StreamReader läsfil = new StreamReader("BookFiles.txt");
+=======
+            StreamReader läsfil = new StreamReader(@"..\SavedData\BookFiles.txt");
+>>>>>>> Kian
             string s;
             // Läser filen tills till slutet hittas
             while ((s = läsfil.ReadLine()) != null)
@@ -149,11 +195,72 @@ namespace ConsoleLibrary
                     Console.WriteLine("Enter the title of the book you want to borrow:");
                     Console.Write(">>");
                     string RequestTitle = Console.ReadLine();
+<<<<<<< HEAD
 
                     Console.WriteLine("Enter the author of the book you want to borrow:");
                     Console.Write(">>");
                     string RequestAuthor = Console.ReadLine();
 
+=======
+                    foreach (var book in BookList)
+                    {
+                        if (book.Title.Contains(RequestTitle))
+                        {
+                            bool CurrentBookStatus = book.Status;
+                            string DisplayStatus;
+                            if (CurrentBookStatus == false)
+                            {
+                                DisplayStatus = "This book is currently not available";
+                            }
+                            else
+                            {
+                                DisplayStatus = "This book is currently available";
+                            }
+
+
+                            Console.WriteLine("Book name: " + book.Title + ", " + "By author: " + book.Author + "; status: " + DisplayStatus);
+                            if (CurrentBookStatus == true)
+                            {
+                                Console.WriteLine("Do you want to borrow this book? Y/N");
+                                string tmp = Console.ReadLine();
+                                switch (tmp)
+                                {
+                                    case "Y":
+                                    case "y":
+                                        book.Status = false;
+                                        Console.WriteLine("You have now borrowed " + book.Title);
+                                        Console.WriteLine("Press any key to go back to the menu");
+                                        Console.ReadKey();
+                                        Start();
+                                        break;
+                                    case "N":
+                                    case "n":
+                                        Start();
+                                        break;
+                                    default:
+                                        Console.WriteLine("Please write Y,y,N or n");
+                                        Borrow();
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("This book is unfortunately not available");
+                                Console.WriteLine("Press any key to go back to the menu");
+                                Console.ReadKey();
+                                Start();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("This book does not exist in this library");
+                            Console.WriteLine("Press any key to go back to the menu");
+                            Console.ReadKey();
+                            Start();
+                        }
+
+                    }
+>>>>>>> Kian
                     break;
                 case "R":
                 case "r":
@@ -165,9 +272,70 @@ namespace ConsoleLibrary
                     Console.Write(">>");
                     string RequestReturnTitle = Console.ReadLine();
 
+<<<<<<< HEAD
                     Console.WriteLine("Enter the author of the book you want to return:");
                     Console.Write(">>");
                     string RequestreturnAuthor = Console.ReadLine();
+=======
+                    foreach (var book in BookList)
+                    {
+                        if (book.Title.Contains(RequestReturnTitle))
+                        {
+                            bool CurrentBookStatus = book.Status;
+                            string DisplayStatus;
+                            if (CurrentBookStatus == false)
+                            {
+                                DisplayStatus = "This book is currently not available";
+                            }
+                            else
+                            {
+                                DisplayStatus = "This book is currently available";
+                            }
+
+
+                            Console.WriteLine("Book name: " + book.Title + ", " + "By author: " + book.Author + "; status: " + DisplayStatus);
+                            if (CurrentBookStatus == false)
+                            {
+                                Console.WriteLine("Do you want to return this book? Y/N");
+                                string tmp = Console.ReadLine();
+                                switch (tmp)
+                                {
+                                    case "Y":
+                                    case "y":
+                                        book.Status = true;
+                                        Console.WriteLine("You have now returned " + book.Title);
+                                        Console.WriteLine("Press any key to go back to the menu");
+                                        Console.ReadKey();
+                                        Start();
+                                        break;
+                                    case "N":
+                                    case "n":
+                                        Start();
+                                        break;
+                                    default:
+                                        Console.WriteLine("Please write Y,y,N or n");
+                                        Borrow();
+                                        break;
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("This book is already available");
+                                Console.WriteLine("Press any key to go back to the menu");
+                                Console.ReadKey();
+                                Start();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("This book does not exist in this library");
+                            Console.WriteLine("Press any key to go back to the menu");
+                            Console.ReadKey();
+                            Start();
+                        }
+
+                    }
+>>>>>>> Kian
                     break;
                 default:
                     Console.WriteLine("Please only write B, b, R or r");
@@ -180,6 +348,7 @@ namespace ConsoleLibrary
 
             Console.WriteLine("Enter the book's name:");
             Console.Write(">>");
+<<<<<<< HEAD
             string sokOrd = (Console.ReadLine());
             foreach (var book in BookList)
             {
@@ -193,15 +362,65 @@ namespace ConsoleLibrary
             }
                 Start();
             }
+=======
+            string RequestTitle = (Console.ReadLine());
+            foreach (var book in BookList)
+            {
+                if (book.Title.Contains(RequestTitle))
+                {
+                    bool CurrentBookStatus = book.Status;
+                    string DisplayStatus;
+                    if (CurrentBookStatus == false)
+                    {
+                        DisplayStatus = "This book is currently not available";
+                    }
+                    else
+                    {
+                        DisplayStatus = "This book is currently available";
+                    }
+
+
+                    Console.WriteLine("book name: " + book.Title + ", " + "By author: " + book.Author + "; status: " + DisplayStatus);
+
+                }
+
+
+            }
+            Start();
+        }
+>>>>>>> Kian
         static void SearchAuthor()
         {
             Console.WriteLine("Enter the author's name:");
             Console.Write(">>");
-            string TemporaryString = Console.ReadLine();
+            string RequestAuthor = Console.ReadLine();
+            foreach (var book in BookList)
+            {
+                if (book.Author.Contains(RequestAuthor))
+                {
+                    bool CurrentBookStatus = book.Status;
+                    string DisplayStatus;
+                    if (CurrentBookStatus == false)
+                    {
+                        DisplayStatus = "This book is currently not available";
+                    }
+                    else
+                    {
+                        DisplayStatus = "This book is currently available";
+                    }
+
+
+                    Console.WriteLine("book name: " + book.Title + ", " + "By author: " + book.Author + "; status: " + DisplayStatus);
+                    Start();
+                }
+
+                Start();
+            }
         }
         static void ShowAll()
         {
             Console.WriteLine("The list of all books...");
+<<<<<<< HEAD
             Console.WriteLine("==========================");
             foreach (var book in BookList)
             {
@@ -212,6 +431,20 @@ namespace ConsoleLibrary
             Console.ReadLine();
             Start();
         }        
+=======
+            Console.WriteLine("========================");
+            int i = 1;
+            foreach (var book in BookList)
+            {
+                Console.WriteLine(i + ". " + book);
+                i++;
+            }
+            Console.WriteLine("==========================");
+            Console.Write("Press any key to go back to Menu");
+            Console.ReadLine();
+            Start();
+        }
+>>>>>>> Kian
         static void EditBook()
         {
             string Tempstring;
@@ -242,17 +475,32 @@ namespace ConsoleLibrary
             }
             Start();
         }
+<<<<<<< HEAD
         static void ShowAllEdit ()
         {
             Console.WriteLine("==========================");
             foreach (var book in BookList)
             {
                 Console.WriteLine(book);
+=======
+        static void ShowAllEdit()
+        {
+            Console.WriteLine("==========================");
+            int i = 1;
+            foreach (var book in BookList)
+            {
+                Console.WriteLine(i + ". " + book);
+                i++;
+>>>>>>> Kian
             }
             // visar och tar bort boken
             Console.WriteLine("==========================");
             Console.WriteLine("Remove book by selecting the number in the list");
+<<<<<<< HEAD
             int dele = Convert.ToInt32(Console.ReadLine());
+=======
+            int dele = Convert.ToInt32(Console.ReadLine()) - 1;
+>>>>>>> Kian
             BookList.RemoveAt(dele);
             // här börjar add book funktionen
             string tempTitle, tempAuthor;
@@ -392,14 +640,20 @@ namespace ConsoleLibrary
                     Start();
                     break;
             }
-        } 
+        }
         static void ShutDown()
         {
             //BookList.Add(new Book("titlehereeeee", "authorhere", true));
             //using (TextWriter tw = new StreamWriter(@"..\SavedData\BookFiles.txt"))
+<<<<<<< HEAD
             using (TextWriter tw = new StreamWriter("BookFiles.txt"))
             {
                 for(int i=0;i<BookList.Count;i++)
+=======
+            using (TextWriter tw = new StreamWriter(@"..\SavedData\BookFiles.txt"))
+            {
+                for (int i = 0; i < BookList.Count; i++)
+>>>>>>> Kian
                 {
                     tw.WriteLine(BookList[i].Title + "," + BookList[i].Author + "," + BookList[i].Status);
                 }
