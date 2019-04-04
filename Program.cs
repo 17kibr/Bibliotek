@@ -25,10 +25,43 @@ namespace ConsoleLibrary
             status = BookStatus;
         }
 
-        public string Title { get; set; }
+        /*public string Title { get; set; }
         public string Author { get; set; }
-        public bool Status { get; set; }
+        public bool Status { get; set; }*/
+        public string Title
+        {
+            get
+            {
+                return title;
+            }
+            set
+            {
+                title = value;
+            }
+        }
+        public string Author
+        {
+            get
+            {
+                return author;
+            }
+            set
+            {
+                author = value;
+            }
+        }
+        public bool Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                Status = value;
+            }
 
+        }
     }
 
     class Program
@@ -372,7 +405,7 @@ namespace ConsoleLibrary
             // visar och tar bort boken
             Console.WriteLine("==========================");
             Console.WriteLine("Remove book by selecting the number in the list");
-            int dele = Convert.ToInt32(Console.ReadLine()) + 1;
+            int dele = Convert.ToInt32(Console.ReadLine()) - 1;
             BookList.RemoveAt(dele);
             // här börjar add book funktionen
             string tempTitle, tempAuthor;
